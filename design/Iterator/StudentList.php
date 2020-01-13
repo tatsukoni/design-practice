@@ -5,8 +5,9 @@ class StudentList
 {
     private $students = [];
     private $last = 0;
+    private $studentCount;
 
-    public function __construct(int $studentCount)
+    public function __construct()
     {
         //
     }
