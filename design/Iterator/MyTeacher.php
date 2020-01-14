@@ -2,7 +2,7 @@
 
 require_once 'Teacher.php';
 require_once 'Student.php';
-require_once 'StudentList.php';
+require_once 'MyStudentList.php';
 
 class MyTeacher extends Teacher
 {
@@ -12,27 +12,25 @@ class MyTeacher extends Teacher
     public function __construct(Array $studentArrays)
     {
         $this->studentArrays = $studentArrays;
-    }
-
-    private function getStudentList()
-    {
-        $this->studentList = new StudentList();
+        $this->studentList = new MyStudentList();
     }
 
     public function createStudentList()
     {
-        $this->getStudentList();
-
         foreach ($this->studentArrays as $studentArray) {
             $student = new Student($studentArray['name'], $studentArray['sex']);
             $this->studentList->add($student);
         }
     }
 
+    /**
+     * 集約体（StudentList.php）に依存したコードをなくす
+     */
     public function callStudents()
     {
-        for ($index = 0; $index < $this->studentList->last; $index++) {
-            return $this->students[$index]->getName() . $this->students[$index]->getSex();
+        $iterator = $this->studentList->iterator();
+        while ($iterator->hasNext()) {
+            $iterator->next()->getName();
         }
     }
 }
