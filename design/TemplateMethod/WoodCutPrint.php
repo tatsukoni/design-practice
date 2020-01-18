@@ -14,8 +14,8 @@ abstract class WoodCutPrint
         $hanzai = new Hanzai($object);
 
         // 一連の処理の流れ
-        $this->draw($hanzai);
-        $this->cut($hanzai);
-        $this->print($hanzai);
+        echo $this->draw($hanzai);
+        echo $this->cut($hanzai);
+        echo $this->print($hanzai);
     }
 }

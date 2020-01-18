@@ -5,16 +5,16 @@ class TanakasWoodCutPrint extends WoodCutPrint
 {
     public function draw(Hanzai $hanzai): string
     {
-        echo $hanzai->create() . 'を描きます';
+        return $hanzai->create() . 'を描きます';
     }
 
     public function cut(Hanzai $hanzai): string
     {
-        echo $hanzai->create() . 'を切ります';
+        return $hanzai->create() . 'を切ります';
     }
 
     public function print(Hanzai $hanzai): string
     {
-        echo $hanzai->create() . 'を印刷します';
+        return $hanzai->create() . 'を印刷します';
     }
 }
