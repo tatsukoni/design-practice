@@ -22,7 +22,7 @@ class Librarian
         if (! $this->getBookInfo($bookName)) {
             return '該当の書籍は見つかりませんでした。';
         } else {
-            return '本の場所は' . $this->getBookInfo($bookName)->bookLocation . 'です。';
+            return '本の場所は' . $this->getBookInfo($bookName)->getBookLocation() . 'です。';
         }
     }
 
@@ -33,7 +33,7 @@ class Librarian
             return '該当の書籍は見つかりませんでした。';
         }
         // 貸し出されているかどうか
-        if ($bookInfo->bookCheck) {
+        if ($bookInfo->getBookCheck()) {
             return '該当の書籍は貸出可能です。';
         } else {
             return '該当の書籍は貸出不可です。';

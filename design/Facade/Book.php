@@ -2,9 +2,9 @@
 
 class Book
 {
-    public $bookName = null;
-    public $bookLocation = null;
-    public $bookCheck = true;
+    private $bookName = null;
+    private $bookLocation = null;
+    private $bookCheck = true;
 
     public function __construct(string $bookName, string $bookLocation)
     {
@@ -12,13 +12,28 @@ class Book
         $this->bookLocation = $bookLocation;
     }
 
-    protected function moveBookLocation(string $bookLocation)
+    public function moveBookLocation(string $bookLocation)
     {
         $this->bookLocation = $bookLocation;
     }
 
-    protected function setBookCheck(bool $bookCheck)
+    public function setBookCheck(bool $bookCheck)
     {
         $this->bookCheck = $bookCheck;
+    }
+
+    public function getBookName()
+    {
+        return $this->bookName;
+    }
+
+    public function getBookLocation()
+    {
+        return $this->bookLocation;
+    }
+
+    public function getBookCheck()
+    {
+        return $this->bookCheck;
     }
 }

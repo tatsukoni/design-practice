@@ -11,6 +11,8 @@ $nakamura->setBook('昆虫図鑑', 'Aブロック');
 // 中村くんに、蔵書を尋ねる（中村くんが窓口となる）
 $visitor = new Visitor();
 echo $visitor->searchBookLocation($nakamura, '昆虫図鑑');
+echo $visitor->searchBookLocation($nakamura, '虫取り図鑑');
 
 // 中村くんに、蔵書が貸出可能か尋ねる
 echo $visitor->searchBookCheck($nakamura, '昆虫図鑑');
+echo $visitor->searchBookCheck($nakamura, '虫取り図鑑');

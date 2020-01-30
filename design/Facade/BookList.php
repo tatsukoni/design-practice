@@ -13,7 +13,7 @@ class BookList
     public function searchBook(string $bookName)
     {
         foreach ($this->bookLists as $book) {
-            if ($book->bookName === $bookName) {
+            if ($book->getBookName() === $bookName) {
                 return $book;
             }
         }
