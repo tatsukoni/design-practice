@@ -12,6 +12,11 @@ class SalesOrder
         $this->calcTax = $calcTax;
     }
 
+    public function getCalcTax(): CalcTax
+    {
+        return $this->calcTax;
+    }
+
     public function handle(int $amount, int $price, string $kind): int
     {
         $this->taxRate = $this->calcTax->taxAmount($amount, $price, $kind); // 税率を取得する

@@ -8,20 +8,18 @@ require_once 'SalesOrder.php';
 
 class TaskController
 {
-    private $calcTax;
     private $salesOrder;
 
     public function __construct(string $myCountry)
     {
-        $this->calcTax = $this->getTaxRulesForCountry($myCountry);
-        $this->salesOrder = new SalesOrder($this->calcTax);
+        $this->salesOrder = new SalesOrder($this->getTaxRulesForCountry($myCountry));
     }
 
     public function getTotalPrice(int $amount, int $price, string $kind): string
     {
         $totalPrice = $this->salesOrder->handle($amount, $price, $kind);
 
-        if ($this->calcTax instanceof UndefinedTax) {
+        if ($this->salesOrder->getCalcTax() instanceof UndefinedTax) {
             return '税率対象外国家です。合計金額：' . $totalPrice;
         } else {
             return '合計金額：' . $totalPrice;
